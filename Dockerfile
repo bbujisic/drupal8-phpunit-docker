@@ -27,7 +27,8 @@ RUN ln -s /usr/local/bin/php /usr/bin/php
 COPY files/usr/local/etc/php/php.ini /usr/local/etc/php/php.ini
 
 # Install the Platform.sh CLI
-RUN curl -sS https://platform.sh/cli/installer | php
+ADD install-cli.sh .
+RUN bash ./install-cli.sh
 
 # Install Drupal tools
 ADD install-php-tools.sh .
